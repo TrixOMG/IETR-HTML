@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>ИЭТР на Кабельный тестер</title>
+  </head>
+
+  <style>
+    /* Обнуление стилей CSS */
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+      display: block;
+    }
+    html {
+      height: 100%;
+    }
+    body {
+      line-height: 1;
+    }
+    ol,
+    ul {
+      list-style: none;
+    }
+    blockquote,
+    q {
+      quotes: none;
+    }
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+      content: "";
+      content: none;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    :root {
+      --white: #eef0e5;
+      --light-green: #b6c4b6;
+      --green: #304d30;
+      --dark-green: #163020;
+    }
+
+    a:active, /* активная/посещенная ссылка */
+a:hover,  /* при наведении */
+a {
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      font-size: larger;
+      width: 100vw;
+      height: 100vh;
+      max-width: 100vw;
+      max-height: 100vh;
+    }
+
+    aside {
+      width: 20em;
+      background-color: var(--light-green);
+      color: #fff;
+      padding: 20px;
+      padding-left: 3em;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+      padding: 3em;
+      background-color: var(--white);
+    }
+
+    .burger-image {
+      position: absolute;
+      top: 0.5em;
+      left: 0.5em;
+      width: 2em;
+      height: 2em;
+      border-radius: 0.4em;
+      border: 2px solid var(--dark-green);
+      background-color: var(--white);
+    }
+
+    .link {
+      border-radius: 0.4em;
+      background-color: var(--light-green);
+      padding: 0.3em;
+      margin: 0.3em;
+      padding-left: 0.7em;
+      color: black;
+      border: 2px solid var(--white);
+      min-width: 15em;
+    }
+
+ 
+    a:active {
+      background-color: var(--dark-green);
+    }
+
+    .oglavlenie-h2 {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 0.5em;
+      margin-top: 0.1em;
+      color: var(--dark-green);
+    }
+
+    body {
+      background-color: var(--white);
+    }
+
+    h1 {
+      font-size: 1.5em;
+    }
+
+    .sidebar {
+      border-radius: 0.4em;
+      margin: 0.4em;
+    }
+
+    @media screen and (max-width: 820) {
+      .sidebar {
+        width: 100vw;
+      }
+    }
+  </style>
+
+  <body>
+    <img
+      src="./images/burger-menu-svgrepo-com.svg"
+      alt="toggle-menu"
+      class="burger-image"
+      onclick="toggleShowSidebar()"
+    />
+    <aside
+      id="sidebar"
+      style="display: flex"
+      class="sidebar"
+    >
+      <div style="display: flex; justify-content: center">
+        <h2 class="oglavlenie-h2">Оглавление ИЭТР</h2>
+      </div>
+      <a class="link" href="./index.html" id="homelink"
+        >Home</a
+      >
+      <a class="link" href="./index2.html" id="2link"
+        >Страница 2</a
+      >
+    </aside>
+
+    <main id="home">
+      <h1>ИЭТР на Кабельный тестер</h1>
+      <hr />
+      <p>Добро пожаловать на страницу с сайдбаром!</p>
+      <div id="el">ELEMENT</div>
+    </main>
+  </body>
+
+  <script>
+    //рендер страниц
+    let el = document.getElementById("el");
+    el.innerHTML =
+      "<p class='oglavlenie-h2'>NEW ELEMENT</p>";
+
+    function toggleShowSidebar() {
+      let sidebar = document.getElementById("sidebar");
+
+      if (sidebar.style.display === "flex") {
+        sidebar.style.display = "none";
+      } else {
+        sidebar.style.display = "flex";
+      }
+    }
+  </script>
+</html>
