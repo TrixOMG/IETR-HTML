@@ -170,37 +170,82 @@ a {
       padding-left: 3em;
       display: flex;
       flex-direction: column;
+      border: 2px solid var(--dark-green);
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+
+    .outer-aside {
+      color: #fff;
+      display: flex;
+      overflow: hidden;
+    }
+
+    aside::-webkit-scrollbar-thumb {
+      background-color: var(--green);
+      border: 4px solid transparent;
+      border-radius: 8px;
+      background-clip: padding-box;
+    }
+
+    aside::-webkit-scrollbar {
+      width: 16px;
     }
 
     main {
       flex: 1;
-      padding: 3em;
-      background-color: var(--white);
+      padding: 20px;
+      padding-left: 3em;
+      background-color: var(--light-green);
+      border: 2px solid var(--dark-green);
+      border-radius: 0.4em;
+      margin: 0.4em;
+      margin-left: 0em;
     }
 
     .burger-image {
+      width: 2em;
+      height: 2em;
+      cursor: pointer;
+    }
+
+    .burger-image-container {
       position: absolute;
-      top: 0.5em;
-      left: 0.5em;
+      top: 0.6em;
+      left: 0.6em;
       width: 2em;
       height: 2em;
       border-radius: 0.4em;
-      border: 2px solid var(--dark-green);
-      background-color: var(--white);
+      /* border: 2px solid var(--dark-green); */
+      /* background-color: var(--white); */
+    }
+
+    .burger-image-container:hover {
+      background-color: var(--green);
+    }
+
+    .burger-image:hover {
+      filter: invert(97%) sepia(15%) saturate(135%)
+        hue-rotate(16deg) brightness(100%) contrast(89%);
     }
 
     .link {
       border-radius: 0.4em;
-      background-color: var(--light-green);
+      /* background-color: var(--light-green); */
       padding: 0.3em;
-      margin: 0.3em;
+      margin: 0.1em;
       padding-left: 0.7em;
       color: black;
-      border: 2px solid var(--white);
       min-width: 15em;
+      cursor: pointer;
     }
 
- 
+    .link:hover {
+      /* border: 2px solid var(--white); */
+      color: var(--white);
+      background-color: var(--green);
+    }
+
     a:active {
       background-color: var(--dark-green);
     }
@@ -211,6 +256,7 @@ a {
       margin: 0.5em;
       margin-top: 0.1em;
       color: var(--dark-green);
+      cursor: default;
     }
 
     body {
@@ -226,35 +272,159 @@ a {
       margin: 0.4em;
     }
 
-    @media screen and (max-width: 820) {
+    .drop-title-container {
+      background-color: var(--light-green);
+      margin: 0.1em;
+      color: black;
+      min-width: 15em;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-left: -2em;
+    }
+
+    .dropdown-list {
+      /* display: flex; */
+      flex-direction: column;
+      border-radius: 0.4em;
+      border: 2px solid var(--dark-green);
+      background-color: var(--white);
+    }
+
+    .dpd-container {
+      width: 1.3em;
+      height: 1.3em;
+      display: flex;
+      align-items: center;
+    }
+
+    .dpd-container:hover {
+      background-color: var(--green);
+      border-radius: 0.4em;
+    }
+
+    .dpd-arrow {
+      width: 1.3em;
+      height: 1.3em;
+      cursor: pointer;
+      /* transform: rotate(-90deg); */
+    }
+
+    .dpd-arrow:hover {
+      filter: invert(97%) sepia(15%) saturate(135%)
+        hue-rotate(16deg) brightness(100%) contrast(89%);
+      /* transform: rotate(0deg); */
+    }
+
+    /* @media screen and (max-width: 820) {
       .sidebar {
         width: 100vw;
       }
-    }
+    } */
   </style>
 
   <body>
-    <img
-      src="./images/burger-menu-svgrepo-com.svg"
-      alt="toggle-menu"
-      class="burger-image"
-      onclick="toggleShowSidebar()"
-    />
-    <aside
-      id="sidebar"
-      style="display: flex"
-      class="sidebar"
-    >
-      <div style="display: flex; justify-content: center">
-        <h2 class="oglavlenie-h2">Оглавление ИЭТР</h2>
-      </div>
-      <a class="link" href="./index.html" id="homelink"
-        >Home</a
+    <div class="burger-image-container">
+      <img
+        src="./images/burger-menu-svgrepo-com.svg"
+        alt="toggle-menu"
+        class="burger-image"
+        onclick="toggleShowSidebar()"
+      />
+    </div>
+    <div class="outer-aside">
+      <aside
+        id="sidebar"
+        style="display: flex"
+        class="sidebar"
       >
-      <a class="link" href="./index2.html" id="2link"
-        >Страница 2</a
-      >
-    </aside>
+        <div style="display: flex; justify-content: center">
+          <h2 class="oglavlenie-h2">Оглавление ИЭТР</h2>
+        </div>
+        <a class="link" id="link1">Главная</a>
+        <a class="link" id="link2">Обзор возможностей</a>
+        <a class="link" id="link3"
+          >Информация о технике безопасности</a
+        >
+        <a class="link" id="link4">Состав комплекта</a>
+        <a class="link" id="link5"
+          >Разъемы, кнопки, индикаторы</a
+        >
+
+        <!-- Выпадающий список Заголовок -->
+        <div class="drop-title-container">
+          <div class="dpd-container">
+            <img
+              src="./images/dpd-arrow.svg"
+              alt="dpd-arrow"
+              class="dpd-arrow"
+              onclick="toggleDroplist(0)"
+              id="dpd1"
+              style="transform: rotate(-90deg)"
+            />
+          </div>
+          <a class="link" id="link6"
+            >Обслуживание, регламентные работы</a
+          >
+        </div>
+
+        <!-- Выпадающий список Содержимое -->
+        <div
+          class="dropdown-list"
+          style="display: none"
+          id="dpdl1"
+        >
+          <a class="link" id="link7">Проверка работы</a>
+          <a class="link" id="link8">Очистка тестера</a>
+          <a class="link" id="link9"
+            >Просмотр информации о тестере</a
+          >
+          <a class="link" id="link10">Калибровка тестера</a>
+          <a class="link" id="link11">Обновление ПО</a>
+          <a class="link" id="link12"
+            >Замена аккумуляторной батареи</a
+          >
+        </div>
+
+        <!-- Выпадающий список -->
+        <div class="drop-title-container">
+          <div class="dpd-container">
+            <img
+              src="./images/dpd-arrow.svg"
+              alt="dpd-arrow"
+              class="dpd-arrow"
+              onclick="toggleDroplist(1)"
+              id="dpd2"
+              style="transform: rotate(-90deg)"
+            />
+          </div>
+          <a class="link" id="link13"
+            >Устранение неисправностей</a
+          >
+        </div>
+
+        <!-- Выпадающий список Содержимое -->
+        <div
+          class="dropdown-list"
+          style="display: none"
+          id="dpdl2"
+        >
+          <a class="link" id="link14"
+            >Устройство не включается</a
+          >
+          <a class="link" id="link15"
+            >Устройство не определяет соединение</a
+          >
+          <a class="link" id="link16"
+            >Устройство неправильно определяет скорость
+            соединения</a
+          >
+          <a class="link" id="link17"
+            >Экран устройства неисправен</a
+          >
+        </div>
+      </aside>
+    </div>
 
     <main id="home">
       <h1>ИЭТР на Кабельный тестер</h1>
@@ -272,11 +442,48 @@ a {
 
     function toggleShowSidebar() {
       let sidebar = document.getElementById("sidebar");
+      let main = document.getElementsByTagName("main");
 
       if (sidebar.style.display === "flex") {
         sidebar.style.display = "none";
+        main[0].style.marginLeft = "0.4em";
       } else {
         sidebar.style.display = "flex";
+        main[0].style.marginLeft = "0em";
+      }
+    }
+
+    // Функция сворачивания-разворачивания выпадающего списка
+    // + меняет стиль кнопки выпадающего списка
+    function toggleDroplist(element) {
+      if (element == 0) {
+        // Изменение стилей
+        let dpd1 = document.getElementById("dpd1");
+        if (dpd1.style.transform == "rotate(-90deg)")
+          dpd1.style.transform = "rotate(0deg)";
+        else dpd1.style.transform = "rotate(-90deg)";
+
+        // Тоггл листа
+        let dpdlist1 = document.getElementById("dpdl1");
+        if (dpdlist1.style.display == "flex") {
+          dpdlist1.style.display = "none";
+        } else {
+          dpdlist1.style.display = "flex";
+        }
+      } else {
+        // Изменение стилей
+        let dpd2 = document.getElementById("dpd2");
+        if (dpd2.style.transform == "rotate(-90deg)")
+          dpd2.style.transform = "rotate(0deg)";
+        else dpd2.style.transform = "rotate(-90deg)";
+
+        // Тоггл листа
+        let dpdlist2 = document.getElementById("dpdl2");
+        if (dpdlist2.style.display == "flex") {
+          dpdlist2.style.display = "none";
+        } else {
+          dpdlist2.style.display = "flex";
+        }
       }
     }
   </script>
