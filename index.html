@@ -192,15 +192,27 @@ a {
       width: 16px;
     }
 
+    main::-webkit-scrollbar-thumb {
+      background-color: var(--green);
+      border: 4px solid transparent;
+      border-radius: 8px;
+      background-clip: padding-box;
+    }
+
+    main::-webkit-scrollbar {
+      width: 16px;
+    }
+
     main {
       flex: 1;
-      padding: 20px;
+      padding: 2em;
       padding-left: 3em;
       background-color: var(--light-green);
       border: 2px solid var(--dark-green);
       border-radius: 0.4em;
       margin: 0.4em;
       margin-left: 0em;
+      overflow: auto;
     }
 
     .burger-image {
@@ -257,6 +269,7 @@ a {
       margin-top: 0.1em;
       color: var(--dark-green);
       cursor: default;
+      text-align: center;
     }
 
     body {
@@ -265,6 +278,22 @@ a {
 
     h1 {
       font-size: 1.5em;
+      text-align: center;
+      font-weight: bold;
+      color: var(--dark-green);
+    }
+
+    p {
+      line-height: 1.5;
+      margin-bottom: 0.5em;
+      text-align: justify;
+    }
+
+    .hr {
+      height: 0.1em;
+      width: 100%;
+      background-color: var(--dark-green);
+      margin: 0.5em;
     }
 
     .sidebar {
@@ -316,6 +345,10 @@ a {
       /* transform: rotate(0deg); */
     }
 
+    .main-padding {
+      padding: 0% 15%;
+    }
+
     /* @media screen and (max-width: 820) {
       .sidebar {
         width: 100vw;
@@ -338,16 +371,20 @@ a {
         style="display: flex"
         class="sidebar"
       >
-        <div style="display: flex; justify-content: center">
-          <h2 class="oglavlenie-h2">Оглавление ИЭТР</h2>
-        </div>
-        <a class="link" id="link1">Главная</a>
-        <a class="link" id="link2">Обзор возможностей</a>
-        <a class="link" id="link3"
+        <h2 class="oglavlenie-h2">Оглавление ИЭТР</h2>
+        <a class="link" id="link1" onclick="changePage(1)"
+          >Главная</a
+        >
+        <a class="link" id="link2" onclick="changePage(2)"
+          >Обзор возможностей</a
+        >
+        <a class="link" id="link3" onclick="changePage(3)"
           >Информация о технике безопасности</a
         >
-        <a class="link" id="link4">Состав комплекта</a>
-        <a class="link" id="link5"
+        <a class="link" id="link4" onclick="changePage(4)"
+          >Состав комплекта</a
+        >
+        <a class="link" id="link5" onclick="changePage(5)"
           >Разъемы, кнопки, индикаторы</a
         >
 
@@ -363,7 +400,7 @@ a {
               style="transform: rotate(-90deg)"
             />
           </div>
-          <a class="link" id="link6"
+          <a class="link" id="link6" onclick="changePage(6)"
             >Обслуживание, регламентные работы</a
           >
         </div>
@@ -374,14 +411,31 @@ a {
           style="display: none"
           id="dpdl1"
         >
-          <a class="link" id="link7">Проверка работы</a>
-          <a class="link" id="link8">Очистка тестера</a>
-          <a class="link" id="link9"
+          <a class="link" id="link7" onclick="changePage(7)"
+            >Проверка работы</a
+          >
+          <a class="link" id="link8" onclick="changePage(8)"
+            >Очистка тестера</a
+          >
+          <a class="link" id="link9" onclick="changePage(9)"
             >Просмотр информации о тестере</a
           >
-          <a class="link" id="link10">Калибровка тестера</a>
-          <a class="link" id="link11">Обновление ПО</a>
-          <a class="link" id="link12"
+          <a
+            class="link"
+            id="link10"
+            onclick="changePage(10)"
+            >Калибровка тестера</a
+          >
+          <a
+            class="link"
+            id="link11"
+            onclick="changePage(11)"
+            >Обновление ПО</a
+          >
+          <a
+            class="link"
+            id="link12"
+            onclick="changePage(12)"
             >Замена аккумуляторной батареи</a
           >
         </div>
@@ -398,7 +452,10 @@ a {
               style="transform: rotate(-90deg)"
             />
           </div>
-          <a class="link" id="link13"
+          <a
+            class="link"
+            id="link13"
+            onclick="changePage(13)"
             >Устранение неисправностей</a
           >
         </div>
@@ -409,47 +466,248 @@ a {
           style="display: none"
           id="dpdl2"
         >
-          <a class="link" id="link14"
+          <a
+            class="link"
+            id="link14"
+            onclick="changePage(14)"
             >Устройство не включается</a
           >
-          <a class="link" id="link15"
+          <a
+            class="link"
+            id="link15"
+            onclick="changePage(15)"
             >Устройство не определяет соединение</a
           >
-          <a class="link" id="link16"
+          <a
+            class="link"
+            id="link16"
+            onclick="changePage(16)"
             >Устройство неправильно определяет скорость
             соединения</a
           >
-          <a class="link" id="link17"
+          <a
+            class="link"
+            id="link17"
+            onclick="changePage(17)"
             >Экран устройства неисправен</a
           >
         </div>
       </aside>
     </div>
 
-    <main id="home">
-      <h1>ИЭТР на Кабельный тестер</h1>
-      <hr />
-      <p>Добро пожаловать на страницу с сайдбаром!</p>
-      <div id="el">ELEMENT</div>
+    <main id="main">
+      <div class="main-padding">
+        <h1>ИЭТР на Кабельный тестер</h1>
+        <div class="hr"></div>
+        <p>
+          Вы находитесь на домашней странице интерактивного
+          электронного технического руководства на Кабельный
+          тестер.
+        </p>
+        <p>
+          Для навигации по разделам руководства используйте
+          оглавление, располагающееся ниже, или
+          интерактивное меню, расположенное слева.
+        </p>
+        <p>
+          Интерактивное меню можно открыть / закрыть
+          нажатием на кнопку в левом верхнем углу.
+        </p>
+        <p style="margin-bottom: 2em">
+          Для доступа к функции диагностического диалога,
+          воспользуйтесь разделом "Устранение
+          неисправностей"
+        </p>
+
+        <div style="display: flex; flex-direction: column">
+          <h2 class="oglavlenie-h2">Оглавление ИЭТР</h2>
+          <div class="hr"></div>
+          <a class="link" id="link1" onclick="changePage(1)"
+            >Главная</a
+          >
+          <a class="link" id="link2" onclick="changePage(2)"
+            >Обзор возможностей</a
+          >
+          <a class="link" id="link3" onclick="changePage(3)"
+            >Информация о технике безопасности</a
+          >
+          <a class="link" id="link4" onclick="changePage(4)"
+            >Состав комплекта</a
+          >
+          <a class="link" id="link5" onclick="changePage(5)"
+            >Разъемы, кнопки, индикаторы</a
+          >
+
+          <a class="link" id="link6" onclick="changePage(6)"
+            >Обслуживание, регламентные работы</a
+          >
+          <a
+            class="link"
+            id="link7"
+            onclick="changePage(7)"
+            style="margin-left: 2em"
+            >Проверка работы</a
+          >
+          <a
+            class="link"
+            id="link8"
+            onclick="changePage(8)"
+            style="margin-left: 2em"
+            >Очистка тестера</a
+          >
+          <a
+            class="link"
+            id="link9"
+            onclick="changePage(9)"
+            style="margin-left: 2em"
+            >Просмотр информации о тестере</a
+          >
+          <a
+            class="link"
+            id="link10"
+            onclick="changePage(10)"
+            style="margin-left: 2em"
+            >Калибровка тестера</a
+          >
+          <a
+            class="link"
+            id="link11"
+            onclick="changePage(11)"
+            style="margin-left: 2em"
+            >Обновление ПО</a
+          >
+          <a
+            class="link"
+            id="link12"
+            onclick="changePage(12)"
+            style="margin-left: 2em"
+            >Замена аккумуляторной батареи</a
+          >
+
+          <a
+            class="link"
+            id="link13"
+            onclick="changePage(13)"
+            >Устранение неисправностей</a
+          >
+          <a
+            class="link"
+            id="link14"
+            onclick="changePage(14)"
+            style="margin-left: 2em"
+            >Устройство не включается</a
+          >
+          <a
+            class="link"
+            id="link15"
+            onclick="changePage(15)"
+            style="margin-left: 2em"
+            >Устройство не определяет соединение</a
+          >
+          <a
+            class="link"
+            id="link16"
+            onclick="changePage(16)"
+            style="margin-left: 2em"
+            >Устройство неправильно определяет скорость
+            соединения</a
+          >
+          <a
+            class="link"
+            id="link17"
+            onclick="changePage(17)"
+            style="margin-left: 2em"
+            >Экран устройства неисправен</a
+          >
+        </div>
+      </div>
     </main>
   </body>
 
   <script>
-    //рендер страниц
-    let el = document.getElementById("el");
-    el.innerHTML =
-      "<p class='oglavlenie-h2'>NEW ELEMENT</p>";
+    // //рендер страниц
+    // let el = document.getElementById("el");
+    // el.innerHTML =
+    //   "<p class='oglavlenie-h2'>NEW ELEMENT</p>";
+
+    function changePage(id) {
+      let main = document.getElementById("main");
+
+      switch (id) {
+        case 1:
+          main.innerHTML = "<p class='oglavlenie-h2'>1</p>";
+          break;
+        case 2:
+          main.innerHTML = "<p class='oglavlenie-h2'>2</p>";
+          break;
+        case 3:
+          main.innerHTML = "<p class='oglavlenie-h2'>3</p>";
+          break;
+        case 4:
+          main.innerHTML = "<p class='oglavlenie-h2'>4</p>";
+          break;
+        case 5:
+          main.innerHTML = "<p class='oglavlenie-h2'>5</p>";
+          break;
+        case 6:
+          main.innerHTML = "<p class='oglavlenie-h2'>6</p>";
+          break;
+        case 7:
+          main.innerHTML = "<p class='oglavlenie-h2'>7</p>";
+          break;
+        case 8:
+          main.innerHTML = "<p class='oglavlenie-h2'>8</p>";
+          break;
+        case 9:
+          main.innerHTML = "<p class='oglavlenie-h2'>9</p>";
+          break;
+        case 10:
+          main.innerHTML =
+            "<p class='oglavlenie-h2'>10</p>";
+          break;
+        case 11:
+          main.innerHTML =
+            "<p class='oglavlenie-h2'>11</p>";
+          break;
+        case 12:
+          main.innerHTML =
+            "<p class='oglavlenie-h2'>12</p>";
+          break;
+        case 13:
+          main.innerHTML =
+            "<p class='oglavlenie-h2'>13</p>";
+          break;
+        case 14:
+          main.innerHTML =
+            "<p class='oglavlenie-h2'>14</p>";
+          break;
+        case 15:
+          main.innerHTML =
+            "<p class='oglavlenie-h2'>15</p>";
+          break;
+        case 16:
+          main.innerHTML =
+            "<p class='oglavlenie-h2'>16</p>";
+          break;
+        case 17:
+          main.innerHTML =
+            "<p class='oglavlenie-h2'>17</p>";
+          break;
+        default:
+          break;
+      }
+    }
 
     function toggleShowSidebar() {
       let sidebar = document.getElementById("sidebar");
-      let main = document.getElementsByTagName("main");
+      let main = document.getElementById("main");
 
       if (sidebar.style.display === "flex") {
         sidebar.style.display = "none";
-        main[0].style.marginLeft = "0.4em";
+        main.style.marginLeft = "0.4em";
       } else {
         sidebar.style.display = "flex";
-        main[0].style.marginLeft = "0em";
+        main.style.marginLeft = "0em";
       }
     }
 
