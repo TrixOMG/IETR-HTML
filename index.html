@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
@@ -120,7 +121,7 @@
     }
     ol,
     ul {
-      list-style: none;
+      list-style: disc;
     }
     blockquote,
     q {
@@ -179,6 +180,7 @@ a {
       color: #fff;
       display: flex;
       overflow: hidden;
+      height: 100%;
     }
 
     aside::-webkit-scrollbar-thumb {
@@ -212,7 +214,8 @@ a {
       border-radius: 0.4em;
       margin: 0.4em;
       margin-left: 0em;
-      overflow: auto;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
 
     .burger-image {
@@ -223,6 +226,7 @@ a {
 
     .burger-image-container {
       position: absolute;
+      z-index: 2;
       top: 0.6em;
       left: 0.6em;
       width: 2em;
@@ -349,11 +353,43 @@ a {
       padding: 0% 15%;
     }
 
-    /* @media screen and (max-width: 820) {
-      .sidebar {
+    .absolute-or-not {
+      height: 100vh;
+      z-index: 1;
+    }
+
+    .exclam {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      width: 3em;
+      height: 3em;
+      text-align: center;
+    }
+
+    ul li::marker {
+      font-size: 150%;
+    }
+
+    .buttons-container {
+      display: flex;
+      flex-direction: row;
+    }
+    /* @media all and (max-width: 1200) {
+      .absolute-or-not {
+        position: absolute;
         width: 100vw;
+        height: 100vh;
       }
     } */
+    /* .outer-aside {
+        flex: 1;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--dark-green);
+      } */
   </style>
 
   <body>
@@ -365,138 +401,178 @@ a {
         onclick="toggleShowSidebar()"
       />
     </div>
-    <div class="outer-aside">
-      <aside
-        id="sidebar"
-        style="display: flex"
-        class="sidebar"
-      >
-        <h2 class="oglavlenie-h2">Оглавление ИЭТР</h2>
-        <a class="link" id="link1" onclick="changePage(1)"
-          >Главная</a
-        >
-        <a class="link" id="link2" onclick="changePage(2)"
-          >Обзор возможностей</a
-        >
-        <a class="link" id="link3" onclick="changePage(3)"
-          >Информация о технике безопасности</a
-        >
-        <a class="link" id="link4" onclick="changePage(4)"
-          >Состав комплекта</a
-        >
-        <a class="link" id="link5" onclick="changePage(5)"
-          >Разъемы, кнопки, индикаторы</a
-        >
+    <div
+      class="absolute-or-not"
+      id="sidebar"
+      style="display: block"
+    >
+      <div class="outer-aside">
+        <aside class="sidebar">
+          <h2 class="oglavlenie-h2">Оглавление ИЭТР</h2>
+          <a class="link" id="link1" onclick="changePage(1)"
+            >Главная</a
+          >
+          <a class="link" id="link2" onclick="changePage(2)"
+            >Обзор возможностей</a
+          >
+          <a class="link" id="link3" onclick="changePage(3)"
+            >Информация о технике безопасности</a
+          >
+          <a class="link" id="link4" onclick="changePage(4)"
+            >Состав комплекта</a
+          >
+          <a class="link" id="link5" onclick="changePage(5)"
+            >Разъемы, кнопки, индикаторы</a
+          >
 
-        <!-- Выпадающий список Заголовок -->
-        <div class="drop-title-container">
-          <div class="dpd-container">
-            <img
-              src="./images/dpd-arrow.svg"
-              alt="dpd-arrow"
-              class="dpd-arrow"
-              onclick="toggleDroplist(0)"
-              id="dpd1"
-              style="transform: rotate(-90deg)"
-            />
+          <!-- Выпадающий список 0 Заголовок -->
+          <div class="drop-title-container">
+            <div class="dpd-container">
+              <img
+                src="./images/dpd-arrow.svg"
+                alt="dpd-arrow"
+                class="dpd-arrow"
+                onclick="toggleDroplist(0)"
+                id="dpd1"
+                style="transform: rotate(-90deg)"
+              />
+            </div>
+            <a
+              class="link"
+              id="link6"
+              onclick="changePage(6)"
+              >Обслуживание, регламентные работы</a
+            >
           </div>
-          <a class="link" id="link6" onclick="changePage(6)"
-            >Обслуживание, регламентные работы</a
-          >
-        </div>
 
-        <!-- Выпадающий список Содержимое -->
-        <div
-          class="dropdown-list"
-          style="display: none"
-          id="dpdl1"
-        >
-          <a class="link" id="link7" onclick="changePage(7)"
-            >Проверка работы</a
+          <!-- Выпадающий список 0 Содержимое -->
+          <div
+            class="dropdown-list"
+            style="display: none"
+            id="dpdl1"
           >
-          <a class="link" id="link8" onclick="changePage(8)"
-            >Очистка тестера</a
-          >
-          <a class="link" id="link9" onclick="changePage(9)"
-            >Просмотр информации о тестере</a
-          >
-          <a
-            class="link"
-            id="link10"
-            onclick="changePage(10)"
-            >Калибровка тестера</a
-          >
-          <a
-            class="link"
-            id="link11"
-            onclick="changePage(11)"
-            >Обновление ПО</a
-          >
-          <a
-            class="link"
-            id="link12"
-            onclick="changePage(12)"
-            >Замена аккумуляторной батареи</a
-          >
-        </div>
-
-        <!-- Выпадающий список -->
-        <div class="drop-title-container">
-          <div class="dpd-container">
-            <img
-              src="./images/dpd-arrow.svg"
-              alt="dpd-arrow"
-              class="dpd-arrow"
-              onclick="toggleDroplist(1)"
-              id="dpd2"
-              style="transform: rotate(-90deg)"
-            />
+            <a
+              class="link"
+              id="link7"
+              onclick="changePage(7)"
+              >Проверка работы</a
+            >
+            <a
+              class="link"
+              id="link8"
+              onclick="changePage(8)"
+              >Очистка тестера</a
+            >
+            <a
+              class="link"
+              id="link9"
+              onclick="changePage(9)"
+              >Просмотр информации о тестере</a
+            >
+            <a
+              class="link"
+              id="link10"
+              onclick="changePage(10)"
+              >Калибровка тестера</a
+            >
+            <a
+              class="link"
+              id="link11"
+              onclick="changePage(11)"
+              >Обновление ПО</a
+            >
+            <a
+              class="link"
+              id="link12"
+              onclick="changePage(12)"
+              >Замена аккумуляторной батареи</a
+            >
           </div>
-          <a
-            class="link"
-            id="link13"
-            onclick="changePage(13)"
-            >Устранение неисправностей</a
-          >
-        </div>
 
-        <!-- Выпадающий список Содержимое -->
-        <div
-          class="dropdown-list"
-          style="display: none"
-          id="dpdl2"
-        >
-          <a
-            class="link"
-            id="link14"
-            onclick="changePage(14)"
-            >Устройство не включается</a
+          <!-- Выпадающий список 1 -->
+          <div class="drop-title-container">
+            <div class="dpd-container">
+              <img
+                src="./images/dpd-arrow.svg"
+                alt="dpd-arrow"
+                class="dpd-arrow"
+                onclick="toggleDroplist(1)"
+                id="dpd2"
+                style="transform: rotate(-90deg)"
+              />
+            </div>
+            <a
+              class="link"
+              id="link13"
+              onclick="changePage(13)"
+              >Устранение неисправностей</a
+            >
+          </div>
+
+          <!-- Выпадающий список 1 Содержимое -->
+          <div
+            class="dropdown-list"
+            style="display: none"
+            id="dpdl2"
           >
-          <a
-            class="link"
-            id="link15"
-            onclick="changePage(15)"
-            >Устройство не определяет соединение</a
+            <a
+              class="link"
+              id="link14"
+              onclick="changePage(14)"
+              >Устройство не включается</a
+            >
+            <a
+              class="link"
+              id="link15"
+              onclick="changePage(15)"
+              >Устройство не определяет соединение</a
+            >
+            <a
+              class="link"
+              id="link16"
+              onclick="changePage(16)"
+              >Устройство неправильно определяет скорость
+              соединения</a
+            >
+            <a
+              class="link"
+              id="link17"
+              onclick="changePage(17)"
+              >Экран устройства неисправен</a
+            >
+          </div>
+        </aside>
+      </div>
+    </div>
+    <!-- Main -->
+    <main id="main">
+      <div class="main-padding">
+        <!-- Текст в Main -->
+        <div class="buttons-container">
+          <a class="link" onclick="changePage(17)"
+            >Экран устройства неисправен</a
           >
-          <a
-            class="link"
-            id="link16"
-            onclick="changePage(16)"
-            >Устройство неправильно определяет скорость
-            соединения</a
-          >
-          <a
-            class="link"
-            id="link17"
-            onclick="changePage(17)"
+          <a class="link" onclick="changePage(17)"
             >Экран устройства неисправен</a
           >
         </div>
-      </aside>
-    </div>
+      </div>
+    </main>
+  </body>
 
-    <main id="main">
-      <div class="main-padding">
+  <script>
+    // //рендер страниц
+    // let el = document.getElementById("el");
+    // el.innerHTML =
+    //   "<p class='oglavlenie-h2'>NEW ELEMENT</p>";
+
+    function changePage(id) {
+      let main = document.getElementById("main");
+
+      switch (id) {
+        case 1:
+          main.innerHTML = `<div class="main-padding">
+        <!-- Текст в Main -->
         <h1>ИЭТР на Кабельный тестер</h1>
         <div class="hr"></div>
         <p>
@@ -516,9 +592,10 @@ a {
         <p style="margin-bottom: 2em">
           Для доступа к функции диагностического диалога,
           воспользуйтесь разделом "Устранение
-          неисправностей"
+          неисправностей."
         </p>
 
+        <!-- Оглавление в Main -->
         <div style="display: flex; flex-direction: column">
           <h2 class="oglavlenie-h2">Оглавление ИЭТР</h2>
           <div class="hr"></div>
@@ -621,21 +698,7 @@ a {
           >
         </div>
       </div>
-    </main>
-  </body>
-
-  <script>
-    // //рендер страниц
-    // let el = document.getElementById("el");
-    // el.innerHTML =
-    //   "<p class='oglavlenie-h2'>NEW ELEMENT</p>";
-
-    function changePage(id) {
-      let main = document.getElementById("main");
-
-      switch (id) {
-        case 1:
-          main.innerHTML = "<p class='oglavlenie-h2'>1</p>";
+`;
           break;
         case 2:
           main.innerHTML = "<p class='oglavlenie-h2'>2</p>";
@@ -650,7 +713,104 @@ a {
           main.innerHTML = "<p class='oglavlenie-h2'>5</p>";
           break;
         case 6:
-          main.innerHTML = "<p class='oglavlenie-h2'>6</p>";
+          main.innerHTML = `<div class="main-padding">
+        <!-- Текст в Main -->
+        <h1>Обслуживание, регламентные работы</h1>
+        <div class="hr"></div>
+        <div style="display: flex; justify-content: center">
+          <img
+            src="./images/vosklZnak.svg"
+            alt="exclamation mark"
+            class="exclam"
+          />
+        </div>
+        <h2 class="oglavlenie-h2">Предупреждение</h2>
+        <p>
+          Во избежание пожара, поражения электрическим
+          током, получения травмы или повреждения тестера:
+        </p>
+        <ul>
+          <li>
+            <p>
+              Не вскрывайте корпус. Вы не можете
+              самостоятельно починить или заменить
+              находящиеся там детали.
+            </p>
+          </li>
+          <li>
+            <p>
+              Используйте только те запчасти, которые
+              одобрены компанией изготовителем.
+            </p>
+          </li>
+          <li>
+            <p>
+              При использовании запчастей, не одобренных в
+              качестве запасных частей, гарантия на продукт
+              прекращается, а использование продукта может
+              быть опасным.
+            </p>
+          </li>
+          <li>
+            <p>
+              Обращайтесь только в авторизованные сервис
+              центры компании изготовителя.
+            </p>
+          </li>
+        </ul>
+        <div style="display: flex; justify-content: center">
+          <img
+            src="./images/vosklZnak.svg"
+            alt="exclamation mark"
+            class="exclam"
+          />
+        </div>
+        <h2 class="oglavlenie-h2">Внимание!</h2>
+        <p>
+          При самостоятельной замене электрических
+          компонентов тестер не будет надлежащим образом
+          откалиброван, что может привести к неточным
+          результатам. Если калибровка надлежащим образом не
+          выполнена, производители кабелей могут
+          аннулировать гарантию на устанавливаемые кабели.
+        </p>
+        <p style="margin-bottom: 2em">
+          Далее представлено оглавление со ссылками на
+          регламентные работы.
+        </p>
+
+        <div style="display: flex; flex-direction: column">
+          <h2 class="oglavlenie-h2">Регламентные работы</h2>
+          <div class="hr"></div>
+          <a class="link" id="link7" onclick="changePage(7)"
+            >Проверка работы</a
+          >
+          <a class="link" id="link8" onclick="changePage(8)"
+            >Очистка тестера</a
+          >
+          <a class="link" id="link9" onclick="changePage(9)"
+            >Просмотр информации о тестере</a
+          >
+          <a
+            class="link"
+            id="link10"
+            onclick="changePage(10)"
+            >Калибровка тестера</a
+          >
+          <a
+            class="link"
+            id="link11"
+            onclick="changePage(11)"
+            >Обновление ПО</a
+          >
+          <a
+            class="link"
+            id="link12"
+            onclick="changePage(12)"
+            >Замена аккумуляторной батареи</a
+          >
+        </div>
+      </div>`;
           break;
         case 7:
           main.innerHTML = "<p class='oglavlenie-h2'>7</p>";
@@ -674,8 +834,44 @@ a {
             "<p class='oglavlenie-h2'>12</p>";
           break;
         case 13:
-          main.innerHTML =
-            "<p class='oglavlenie-h2'>13</p>";
+          main.innerHTML = `<div class="main-padding">
+        <!-- Текст в Main -->
+        <h1>Устранение неисправностей</h1>
+        <div class="hr"></div>
+        <p style="margin-bottom: 1em">
+          В данном разделе представлено оглавление со
+          ссылками на диагностические диалоги, которые
+          помогут вам решить предусмотренные неисправности.
+        </p>
+
+        <div style="display: flex; flex-direction: column">
+          <a
+            class="link"
+            id="link14"
+            onclick="changePage(14)"
+            >Устройство не включается</a
+          >
+          <a
+            class="link"
+            id="link15"
+            onclick="changePage(15)"
+            >Устройство не определяет соединение</a
+          >
+          <a
+            class="link"
+            id="link16"
+            onclick="changePage(16)"
+            >Устройство неправильно определяет скорость
+            соединения</a
+          >
+          <a
+            class="link"
+            id="link17"
+            onclick="changePage(17)"
+            >Экран устройства неисправен</a
+          >
+        </div>
+      </div>`;
           break;
         case 14:
           main.innerHTML =
@@ -702,11 +898,11 @@ a {
       let sidebar = document.getElementById("sidebar");
       let main = document.getElementById("main");
 
-      if (sidebar.style.display === "flex") {
+      if (sidebar.style.display === "block") {
         sidebar.style.display = "none";
         main.style.marginLeft = "0.4em";
       } else {
-        sidebar.style.display = "flex";
+        sidebar.style.display = "block";
         main.style.marginLeft = "0em";
       }
     }
@@ -744,5 +940,18 @@ a {
         }
       }
     }
+
+    // Функции, работающие при загрузке страницы
+    // changePage(1);
   </script>
 </html>
+
+<!-- exclam example -->
+<!-- <div style="display: flex; justify-content: center;">
+          <img
+            src="./images/burger-menu-svgrepo-com.svg"
+            alt="exclamation mark"
+            class="exclam"
+          />
+        </div>
+  -->
