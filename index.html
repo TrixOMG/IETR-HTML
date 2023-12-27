@@ -373,6 +373,15 @@ a {
     .buttons-container {
       display: flex;
       flex-direction: row;
+      width: 100%;
+      justify-content: center;
+      gap: 3em;
+    }
+
+    .ans-button {
+      text-align: center;
+      padding-left: 0;
+      min-width: 10em;
     }
     /* @media all and (max-width: 1200) {
       .absolute-or-not {
@@ -548,13 +557,19 @@ a {
     <main id="main">
       <div class="main-padding">
         <!-- Текст в Main -->
-        <div class="buttons-container">
-          <a class="link" onclick="changePage(17)"
-            >Экран устройства неисправен</a
-          >
-          <a class="link" onclick="changePage(17)"
-            >Экран устройства неисправен</a
-          >
+        <div id="dialog-box">
+          <div class="buttons-container">
+            <a
+              class="link ans-button"
+              onclick="changeAnswer(1,1)"
+              >Да</a
+            >
+            <a
+              class="link ans-button"
+              onclick="changeAnswer(1,2)"
+              >Нет</a
+            >
+          </div>
         </div>
       </div>
     </main>
@@ -565,6 +580,25 @@ a {
     // let el = document.getElementById("el");
     // el.innerHTML =
     //   "<p class='oglavlenie-h2'>NEW ELEMENT</p>";
+    function changeAnswer(numDialog, numAnswer) {
+      let dialogBox = document.getElementById("dialog-box");
+
+      // TODO
+      switch (numDialog) {
+        case 1:
+          switch (numAnswer) {
+            case 1:
+              break;
+
+            default:
+              break;
+          }
+          break;
+
+        default:
+          break;
+      }
+    }
 
     function changePage(id) {
       let main = document.getElementById("main");
