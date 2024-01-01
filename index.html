@@ -147,8 +147,8 @@
     }
 
     a:active, /* активная/посещенная ссылка */
-a:hover,  /* при наведении */
-a {
+    a:hover,  /* при наведении */
+    a {
       text-decoration: none;
       color: var(--white);
     }
@@ -366,6 +366,14 @@ a {
       text-align: center;
     }
 
+    .image {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      width: 100%;
+      height: auto;
+      text-align: center;
+    }
+
     ul li::marker {
       font-size: 150%;
     }
@@ -380,25 +388,35 @@ a {
 
     .ans-button {
       text-align: center;
-      padding-left: 0;
-      min-width: 10em;
+      padding: 0.2em;
+      margin-left: 0.3em;
+      margin-right: 0.3em;
+      min-width: 5em;
+    }
+
+    .dialog-box {
+      border: 2px solid var(--dark-green);
+      border-radius: 0.4em;
+      padding: 0.5em;
+      background-color: var(--white);
     }
     /* @media all and (max-width: 1200) {
-      .absolute-or-not {
-        position: absolute;
-        width: 100vw;
-        height: 100vh;
-      }
-    } */
+
+          .absolute-or-not {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+          }
+        } */
     /* .outer-aside {
-        flex: 1;
-        width: 100vw;
-        height: 100vh;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: var(--dark-green);
-      } */
+            flex: 1;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--dark-green);
+          } */
   </style>
 
   <body>
@@ -557,48 +575,54 @@ a {
     <main id="main">
       <div class="main-padding">
         <!-- Текст в Main -->
-        <div id="dialog-box">
-          <div class="buttons-container">
-            <a
-              class="link ans-button"
-              onclick="changeAnswer(1,1)"
-              >Да</a
-            >
-            <a
-              class="link ans-button"
-              onclick="changeAnswer(1,2)"
-              >Нет</a
-            >
-          </div>
+        <h1>Устройство не включается</h1>
+        <div class="hr"></div>
+        <p>
+          Спасибо за использование диагностического диалога
+          данного ИЭТР на Кабельный тестер!
+        </p>
+        <div style="display: flex; flex-direction: column">
+          <a
+            class="link"
+            id="link1"
+            onclick="changePage(1)"
+            style="text-align: center"
+            >На главную</a
+          >
         </div>
       </div>
     </main>
   </body>
 
   <script>
+    // for debug
+    // TODO:
+    sidebar.style.display = "none";
+
     // //рендер страниц
     // let el = document.getElementById("el");
     // el.innerHTML =
     //   "<p class='oglavlenie-h2'>NEW ELEMENT</p>";
-    function changeAnswer(numDialog, numAnswer) {
-      let dialogBox = document.getElementById("dialog-box");
 
-      // TODO
-      switch (numDialog) {
-        case 1:
-          switch (numAnswer) {
-            case 1:
-              break;
+    // function changeAnswer(numDialog, numAnswer) {
+    //   let dialogBox = document.getElementById("dialog-box");
 
-            default:
-              break;
-          }
-          break;
+    //   // TODO
+    //   switch (numDialog) {
+    //     case 1:
+    //       switch (numAnswer) {
+    //         case 1:
+    //           break;
 
-        default:
-          break;
-      }
-    }
+    //         default:
+    //           break;
+    //       }
+    //       break;
+
+    //     default:
+    //       break;
+    //   }
+    // }
 
     function changePage(id) {
       let main = document.getElementById("main");
@@ -907,9 +931,47 @@ a {
         </div>
       </div>`;
           break;
+
+        // Устройство не включается НАЧАЛО
         case 14:
-          main.innerHTML =
-            "<p class='oglavlenie-h2'>14</p>";
+          main.innerHTML = `<div class="main-padding">
+        <!-- Текст в Main -->
+        <h1>Устройство не включается</h1>
+        <div class="hr"></div>
+        <p>
+          Проверьте наличие батареи в корпусе устройства.
+        </p>
+        <p>
+          Для этого повторите шаги 1 и 2, изображенные на
+          рисунке ниже.
+        </p>
+        <div style="display: flex; justify-content: center">
+          <img
+            src="./images/zamena-batarei.png"
+            alt="zamena-batarei"
+            class="image"
+            style="margin-bottom: 2em"
+          />
+        </div>
+
+        <div id="dialog-box" class="dialog-box">
+          <p style="text-align: center">
+            Присутствует ли батарея в корпусе устройства?
+          </p>
+          <div class="buttons-container">
+            <a
+              class="link ans-button"
+              onclick="changePage(18)"
+              >Да</a
+            >
+            <a
+              class="link ans-button"
+              onclick="changePage(19)"
+              >Нет</a
+            >
+          </div>
+        </div>
+      </div>`;
           break;
         case 15:
           main.innerHTML =
@@ -923,6 +985,124 @@ a {
           main.innerHTML =
             "<p class='oglavlenie-h2'>17</p>";
           break;
+
+        ////
+        // Dialog variations
+        ////
+
+        //
+        // Устройство не включается
+        //
+
+        // da
+        case 18:
+          main.innerHTML = `<div class="main-padding">
+        <!-- Текст в Main -->
+        <h1>Устройство не включается</h1>
+        <div class="hr"></div>
+        <p>
+          Проверьте правильность установки батареи,
+          соблюдение полярности.
+        </p>
+
+        <div id="dialog-box" class="dialog-box">
+          <p style="text-align: center">
+            Батарея установлена правильно?
+          </p>
+          <div class="buttons-container">
+            <a
+              class="link ans-button"
+              onclick="changePage(20)"
+              >Да</a
+            >
+            <a
+              class="link ans-button"
+              onclick="changePage(21)"
+              >Нет</a
+            >
+          </div>
+        </div>
+      </div>`;
+          break;
+
+        // net
+        case 19:
+          main.innerHTML = `<div class="main-padding">
+        <!-- Текст в Main -->
+        <h1>Устройство не включается</h1>
+        <div class="hr"></div>
+        <p>
+          Корректно установите новую батарею, как показано
+          на рисунке ниже.
+        </p>
+        <div style="display: flex; justify-content: center">
+          <img
+            src="./images/zamena-batarei.png"
+            alt="zamena-batarei"
+            class="image"
+          />
+        </div>
+        <p style="margin-bottom: 2em">
+          При этом не забывайте соблюдать полярность.
+        </p>
+        <div id="dialog-box" class="dialog-box">
+          <p style="text-align: center">
+            Неисправность устранена?
+          </p>
+          <div class="buttons-container">
+            <a
+              class="link ans-button"
+              onclick="changePage(22)"
+              >Да</a
+            >
+            <a
+              class="link ans-button"
+              onclick="changePage(23)"
+              >Нет</a
+            >
+          </div>
+        </div>
+      </div>`;
+          break;
+
+        // Батарея устнановлена правильно?
+        // da
+        case 20:
+          main.innerHTML = `<p class='oglavlenie-h2'>20</p>`;
+          break;
+
+        // net
+        case 21:
+          main.innerHTML = `<p class='oglavlenie-h2'>21</p>`;
+          break;
+
+        //Неисправность устранена?
+        // da
+        case 22:
+          main.innerHTML = `<div class="main-padding">
+        <!-- Текст в Main -->
+        <h1>Устройство не включается</h1>
+        <div class="hr"></div>
+        <p style="margin-bottom: 1em">
+          Спасибо за использование диагностического диалога
+          данного ИЭТР на Кабельный тестер!
+        </p>
+        <div style="display: flex; flex-direction: column">
+          <a
+            class="link"
+            id="link1"
+            onclick="changePage(1)"
+            style="text-align: center"
+            >На главную</a
+          >
+        </div>
+      </div>`;
+          break;
+
+        // net
+        case 23:
+          break;
+
         default:
           break;
       }
@@ -989,3 +1169,42 @@ a {
           />
         </div>
   -->
+
+<!-- dialog -->
+<!-- <div id="dialog-box" class="dialog-box">
+          <p style="text-align: center">
+            Неисправность устранена?
+          </p>
+          <div class="buttons-container">
+            <a
+              class="link ans-button"
+              onclick="changeAnswer(1,1)"
+              >Да</a
+            >
+            <a
+              class="link ans-button"
+              onclick="changePage()"
+              >Нет</a
+            >
+          </div> -->
+
+<!-- Да, неисправность устранена -->
+<!-- main.innerHTML = `
+<div class="main-padding">
+  <h1>Устройство не включается</h1>
+  <div class="hr"></div>
+  <p>
+    Спасибо за использование диагностического диалога
+    данного ИЭТР на Кабельный тестер!
+  </p>
+  <div style="display: flex; flex-direction: column">
+    <a
+      class="link"
+      id="link1"
+      onclick="changePage(1)"
+      style="text-align: center"
+      >На главную</a
+    >
+  </div>
+</div>
+`; -->
