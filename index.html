@@ -293,6 +293,21 @@
       text-align: justify;
     }
 
+    .number-circle {
+      width: 1.5em;
+      height: 1.5em;
+      min-width: 1.5em;
+      min-height: 1.5em;
+      border-radius: 100%;
+      margin: 0.3em;
+      margin-left: 0;
+      margin-top: 0;
+      border: 2px solid var(--dark-green);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .hr {
       height: 0.1em;
       width: 100%;
@@ -370,6 +385,7 @@
       margin-top: 0.5em;
       margin-bottom: 0.5em;
       width: 100%;
+      max-width: 40vw;
       height: auto;
       text-align: center;
     }
@@ -575,20 +591,170 @@
     <main id="main">
       <div class="main-padding">
         <!-- Текст в Main -->
-        <h1>Устройство не включается</h1>
+        <h1>Разъемы, кнопки и индикаторы</h1>
         <div class="hr"></div>
         <p>
-          Спасибо за использование диагностического диалога
-          данного ИЭТР на Кабельный тестер!
+          На рисунке ниже представлены разъемы, кнопки и
+          индикаторы основного тестера.
         </p>
+        <div style="display: flex; justify-content: center">
+          <img
+            src="./images/main-tester.png"
+            alt="el-obozn"
+            class="image"
+            style="margin-bottom: 2em"
+          />
+        </div>
+
         <div style="display: flex; flex-direction: column">
-          <a
-            class="link"
-            id="link1"
-            onclick="changePage(1)"
-            style="text-align: center"
-            >На главную</a
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
           >
+            <div class="number-circle"><div>1</div></div>
+            <p>Разъем интерфейсного адаптера соединения</p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>2</div></div>
+            <p>
+              Разъем RJ45 для связи между основным и
+              удаленным тестерами, при измерении
+              перекрестных наводок
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>3</div></div>
+            <p>Сенсорный ЖК-дисплей</p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>4</div></div>
+            <p>
+              "Test" - Запуск теста. Для запуска теста можно
+              также коснуться экранной кнопки ТЕСТ на
+              дисплее.
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>5</div></div>
+            <p>Кнопка питания</p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>6</div></div>
+            <p>
+              "Home" - Нажмите, чтобы перейти на главный
+              экран.
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>7</div></div>
+            <p>
+              Разъем для адаптера питания от сети
+              переменного тока. При зарядке батарей
+              индикатор светится красным цветом, а когда
+              батарея полностью заряжена, начинает светиться
+              зеленым. Если зарядка батареи невозможна,
+              индикатор светится желтым цветом.
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>8</div></div>
+            <p>Разъем RJ45</p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>9</div></div>
+            <p>
+              Порт Micro-AB USB. Данный порт USB позволяет
+              подключать тестер к ПК, чтобы передать туда
+              результаты тестов, а также устанавливать на
+              тестер обновления ПО.
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>10</div></div>
+            <p>
+              USB-порт типа A. Этот порт USB-хоста позволяет
+              сохранять результаты измерений на съемном
+              USB-накопителе.
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>11</div></div>
+            <p>Разъем для гарнитуры</p>
+          </div>
         </div>
       </div>
     </main>
@@ -759,16 +925,461 @@
 `;
           break;
         case 2:
-          main.innerHTML = "<p class='oglavlenie-h2'>2</p>";
+          main.innerHTML = `<div class="main-padding">
+        <!-- Текст в Main -->
+        <h1>Обзор возможностей</h1>
+        <div class="hr"></div>
+        <p>
+          Модули кабельных тестеров нашей компании
+          присоединяются к основному и удаленному блокам
+          Versiv и образуют надежные, компактные тестеры,
+          позволяющие сертифицировать и документировать
+          кабельные системы на основе витых пар, а также
+          устранять возникающие в них неисправности. Тестеры
+          предоставляют следующие возможности:
+        </p>
+        <ul>
+          <li>
+            <p>
+              Модули DSX-5000 позволяют сертифицировать
+              кабельные системы на основе витых пар в
+              соответствии с пределами Class Fa (1000 МГц)
+              менее чем за 15 секунд.
+            </p>
+          </li>
+          <li>
+            <p>
+              Предоставление информации о том, прошел ли
+              тест, или нет, на основе определенного предела
+              теста.
+            </p>
+          </li>
+          <li>
+            <p>
+              Во внутренней памяти тестера можно хранить
+              примерно 12 700 результатов автоматических
+              тестов Cat 6A с графическими данными.
+              Дополнительное количество результатов можно
+              сохранить на съемном флэш-накопителе.
+            </p>
+          </li>
+          <li>
+            <p>
+              Программное обеспечение AxTalk поставляется с
+              модулями DSX-5000 и позволяет проводить
+              измерение перекрестных наводок.
+            </p>
+          </li>
+          <li>
+            <p>
+              Сенсорный экран используется для быстрой
+              навигации между различными представлениями
+              результатов и просмотра дополнительных
+              сведений о кабелях.
+            </p>
+          </li>
+          <li>
+            <p>
+              Возможность создания проектов для определения
+              типов тестов и идентификаторов кабелей,
+              необходимых для выполнения задания;
+              возможность мониторинга хода выполнения и
+              состояния задания.
+            </p>
+          </li>
+        </ul>
+      </div>`;
           break;
         case 3:
-          main.innerHTML = "<p class='oglavlenie-h2'>3</p>";
+          main.innerHTML = `<div class="main-padding">
+        <!-- Текст в Main -->
+        <h1>Информация о технике безопасности</h1>
+        <div class="hr"></div>
+        <p>
+          В таблице ниже приведены международные
+          электротехнические обозначения, которые
+          используются в тестере и в данном руководстве.
+        </p>
+        <div style="display: flex; justify-content: center">
+          <img
+            src="./images/el-obozn.png"
+            alt="el-obozn"
+            class="image"
+            style="margin-bottom: 2em"
+          />
+        </div>
+
+        <div style="display: flex; justify-content: center">
+          <img
+            src="./images/vosklZnak.svg"
+            alt="exclamation mark"
+            class="exclam"
+          />
+        </div>
+        <h2 class="oglavlenie-h2">Предупреждение</h2>
+        <p>
+          Для предотвращения пожара, поражения электрическим
+          током или получения травмы предпринимайте
+          следующие меры предосторожности:
+        </p>
+        <ul>
+          <li>
+            <p>
+              Не подключайте тестер к телефонным розеткам,
+              системам или оборудованию, включая розетки
+              ISDN. Это является ненадлежащим использованием
+              продукта, которое может привести к повреждению
+              тестера и потенциальной опасности поражения
+              пользователя электрическим током.
+            </p>
+          </li>
+          <li>
+            <p>
+              Электропитание тестера и зарядки аккумулятора
+              допускается только с использованием адаптеров
+              переменного тока, одобренных компанией
+              изготовителем.
+            </p>
+          </li>
+          <li>
+            <p>
+              Запрещается помещать аккумуляторную батарею в
+              огонь или подвергать ее воздействию высоких
+              температур (свыше 60 °C).
+            </p>
+          </li>
+          <li>
+            <p>
+              Запрещается использовать тестер в условиях
+              высокой влажности и подвергать тестер
+              воздействию воды.
+            </p>
+          </li>
+          <li>
+            <p>
+              Запрещается подключать аккумуляторную батарею
+              к замкнутой цепи и разбирать ее.
+            </p>
+          </li>
+          <li>
+            <p>
+              Запрещается использовать поврежденный тестер.
+              Перед началом работы необходимо осмотреть
+              прибор, чтобы убедиться в отсутствии
+              повреждений
+            </p>
+          </li>
+          <li>
+            <p>
+              Не вскрывайте корпус тестера; он не содержит
+              компонентов, требующих обслуживания
+              пользователем.
+            </p>
+          </li>
+          <li>
+            <p>
+              Не пытайтесь вносить изменения в конструкцию
+              тестера.
+            </p>
+          </li>
+          <li>
+            <p>
+              Если данный прибор используется не по
+              назначению, то он может не обеспечивать
+              указанный класс защиты.
+            </p>
+          </li>
+        </ul>
+        <div style="display: flex; justify-content: center">
+          <img
+            src="./images/vosklZnak.svg"
+            alt="exclamation mark"
+            class="exclam"
+          />
+        </div>
+        <h2 class="oglavlenie-h2">Внимание!</h2>
+        <p>
+          Для предотвращения повреждения тестера или кабелей
+          в процессе выполнения тестирования, а также во
+          избежание потери данных и обеспечения наивысшей
+          точности результатов измерений:
+        </p>
+        <ul>
+          <li>
+            <p>
+              Запрещается подключать тестер к активной сети.
+              Это может повлиять на точность результатов,
+              нарушить работу сети, а также повредить
+              тестер.
+            </p>
+          </li>
+          <li>
+            <p>
+              Подсоединяйте к адаптерам только те разъемы,
+              которые предназначены для Ethernet, такие как
+              RJ45, ARJ45, и разъемы Cat 7. Использование
+              вилочных частей разъемов других типов, таких
+              как RJ11 (телефон), могут привести к
+              необратимому повреждению розеточных частей
+              разъемов.
+            </p>
+          </li>
+          <li>
+            <p>
+              Подсоединяйте адаптер переменного тока или
+              меняйте аккумулятор сразу после появления
+              индикации разряда батарей.
+            </p>
+          </li>
+          <li>
+            <p>
+              При проведении измерений не пользуйтесь
+              портативными радиоприборами, например рациями
+              и мобильными телефонами. Это может привести к
+              ошибкам в результатах тестирования.
+            </p>
+          </li>
+          <li>
+            <p>
+              При использовании адаптеров постоянных
+              соединений не скручивайте кабели, не тяните
+              их, не защипывайте, не раздавливайте и не
+              связывайте кабели в узлы.
+            </p>
+          </li>
+        </ul>
+      </div>
+ `;
           break;
         case 4:
-          main.innerHTML = "<p class='oglavlenie-h2'>4</p>";
+          main.innerHTML = `<div class="main-padding">
+        <!-- Текст в Main -->
+        <h1>Состав комплекта</h1>
+        <div class="hr"></div>
+        <p>
+          Комплекты DSX поставляются вместе с перечисленными
+          ниже аксессуарами. Если какой-либо из компонентов
+          поврежден или отсутствует, немедленно уведомите об
+          этом организацию, в которой вы приобрели прибор.
+        </p>
+        <ul>
+          <li>
+            <p>Основной блок Versiv с аккумулятором.</p>
+          </li>
+          <li>
+            <p>Удаленный блок Versiv с аккумулятором.</p>
+          </li>
+          <li>
+            <p>
+              Два модуля DSX-5000 для измерений при 1000
+              МГц.
+            </p>
+          </li>
+          <li>
+            <p>
+              Два адаптера постоянных соединений DSX-PLA004
+              Cat 6A/Class Ea.
+            </p>
+          </li>
+          <li>
+            <p>Кейс для переноски тестеров.</p>
+          </li>
+          <li>
+            <p>Два ремня для переноски тестеров.</p>
+          </li>
+          <li>
+            <p>Два ручных ремня для тестеров.</p>
+          </li>
+          <li>
+            <p>
+              Кабель USB для подключения к ПК, USB-A –
+              Micro-B.
+            </p>
+          </li>
+          <li>
+            <p>2 гарнитуры.</p>
+          </li>
+          <li>
+            <p>
+              Два адаптера переменного тока/зарядных
+              устройства.
+            </p>
+          </li>
+          <li>
+            <p>Руководство по началу работы с DSX.</p>
+          </li>
+        </ul>
+      </div>`;
           break;
         case 5:
-          main.innerHTML = "<p class='oglavlenie-h2'>5</p>";
+          main.innerHTML = `<div class="main-padding">
+        <!-- Текст в Main -->
+        <h1>Разъемы, кнопки и индикаторы</h1>
+        <div class="hr"></div>
+        <p>
+          На рисунке ниже представлены разъемы, кнопки и
+          индикаторы основного тестера.
+        </p>
+        <div style="display: flex; justify-content: center">
+          <img
+            src="./images/main-tester.png"
+            alt="el-obozn"
+            class="image"
+            style="margin-bottom: 2em"
+          />
+        </div>
+
+        <div style="display: flex; flex-direction: column">
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>1</div></div>
+            <p>Разъем интерфейсного адаптера соединения</p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>2</div></div>
+            <p>
+              Разъем RJ45 для связи между основным и
+              удаленным тестерами, при измерении
+              перекрестных наводок
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>3</div></div>
+            <p>Сенсорный ЖК-дисплей</p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>4</div></div>
+            <p>
+              "Test" - Запуск теста. Для запуска теста можно
+              также коснуться экранной кнопки ТЕСТ на
+              дисплее.
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>5</div></div>
+            <p>Кнопка питания</p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>6</div></div>
+            <p>
+              "Home" - Нажмите, чтобы перейти на главный
+              экран.
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>7</div></div>
+            <p>
+              Разъем для адаптера питания от сети
+              переменного тока. При зарядке батарей
+              индикатор светится красным цветом, а когда
+              батарея полностью заряжена, начинает светиться
+              зеленым. Если зарядка батареи невозможна,
+              индикатор светится желтым цветом.
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>8</div></div>
+            <p>Разъем RJ45</p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>9</div></div>
+            <p>
+              Порт Micro-AB USB. Данный порт USB позволяет
+              подключать тестер к ПК, чтобы передать туда
+              результаты тестов, а также устанавливать на
+              тестер обновления ПО.
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>10</div></div>
+            <p>
+              USB-порт типа A. Этот порт USB-хоста позволяет
+              сохранять результаты измерений на съемном
+              USB-накопителе.
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: 1em;
+              margin-bottom: 0.5em;
+            "
+          >
+            <div class="number-circle"><div>11</div></div>
+            <p>Разъем для гарнитуры</p>
+          </div>
+        </div>
+      </div>`;
           break;
         case 6:
           main.innerHTML = `<div class="main-padding">
@@ -1101,6 +1712,7 @@
 
         // net
         case 23:
+          main.innerHTML = ``;
           break;
 
         default:
