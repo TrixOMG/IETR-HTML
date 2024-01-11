@@ -25,4 +25,4 @@ TODO:
 [X] Dialog 1
 [X] Dialog 2
 [X] Dialog 3
-[ ] Dialog 4
+[X] Dialog 4

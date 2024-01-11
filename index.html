@@ -1946,8 +1946,33 @@
          `;
           break;
         case 17:
-          main.innerHTML =
-            "<p class='oglavlenie-h2'>17</p>";
+          main.innerHTML = `<div class="main-padding">
+        <!-- Текст в Main -->
+        <h1>Экран устройства неисправен</h1>
+        <div class="hr"></div>
+        <p>
+          Проверьте наличие физических повреждений на экране
+          или корпусе устройства.
+        </p>
+        <div id="dialog-box" class="dialog-box">
+          <p style="text-align: center">
+            Физические повреждения присутствуют?
+          </p>
+          <div class="buttons-container">
+            <a
+              class="link ans-button"
+              onclick="changePage(37)"
+              >Да</a
+            >
+            <a
+              class="link ans-button"
+              onclick="changePage(39)"
+              >Нет</a
+            >
+          </div>
+        </div>
+      </div>
+ `;
           break;
 
         ////
@@ -2427,8 +2452,8 @@
                 </div>
            </div>
      `;
-
           break;
+
         case 34:
           main.innerHTML = `
               <div class="main-padding">
@@ -2632,6 +2657,207 @@
          `;
           break;
 
+        case 37:
+          main.innerHTML = `<div class="main-padding">
+            <!-- Текст в Main -->
+            <h1>Экран устройства неисправен</h1>
+            <div class="hr"></div>
+            <p>
+              Пожалуйста, обратитесь к специалисту в авторизованном сервис-центре компании изготовителя.
+           </p>
+                <p style="margin-bottom: 1em">
+                  Спасибо за использование диагностического диалога
+                  данного ИЭТР на Кабельный тестер!
+                </p>
+                <div style="display: flex; flex-direction: column">
+                  <a
+                    class="link"
+                    id="link1"
+                    onclick="changePage(1)"
+                    style="text-align: center"
+                    >На главную</a
+                  >
+                </div>
+           </div>
+     `;
+          break;
+
+        case 38:
+          main.innerHTML = `
+<div class="main-padding">
+  <h1>Экран устройства неисправен</h1>
+  <div class="hr"></div>
+  <p>
+    Спасибо за использование диагностического диалога
+    данного ИЭТР на Кабельный тестер!
+  </p>
+  <div style="display: flex; flex-direction: column">
+    <a
+      class="link"
+      id="link1"
+      onclick="changePage(1)"
+      style="text-align: center"
+      >На главную</a
+    >
+  </div>
+</div>
+`;
+          break;
+
+        case 39:
+          main.innerHTML = `<div class="main-padding">
+        <!-- Текст в Main -->
+        <h1>Экран устройства неисправен</h1>
+        <div class="hr"></div>
+        <p>
+          Проверьте, включается ли экран при включении
+          тестера?
+        </p>
+        <div id="dialog-box" class="dialog-box">
+          <p style="text-align: center">
+            Экран включается?
+          </p>
+          <div class="buttons-container">
+            <a
+              class="link ans-button"
+              onclick="changePage(40)"
+              >Да</a
+            >
+            <a
+              class="link ans-button"
+              onclick="changePage(37)"
+              >Нет</a
+            >
+          </div>
+        </div>
+      </div>
+ `;
+          break;
+
+        case 40:
+          main.innerHTML = `<div class="main-padding">
+        <h1>
+          Экран устройства неисправен
+        </h1>
+        <div class="hr"></div>
+        <p>
+          Проверьте, установлена ли последняя версия прошивки.
+          Для этого:
+       </p>
+                <p style="font-weight: bold">
+                  Для просмотра информации о тестере и
+                  присоединенных модулях и адаптерах:
+                </p>
+                <p>
+                  На главном экране коснитесь значка "ИНСТРУМЕНТЫ",
+                  затем коснитесь "Информация о версии".
+                </p>
+                <p style="font-weight: bold">
+                  Для просмотра информации об удаленном блоке
+                  тестера:
+                </p>
+                <p>
+                  Соедините основной и удаленный блоки тестера с
+                  использованием модулей DSX CableAnalyzer, а затем
+                  коснитесь "УДАЛЕННЫЙ" на экране "Информация о
+                  версии".
+                </p>
+
+        <div id="dialog-box" class="dialog-box">
+          <p style="text-align: center">
+            Версия прошивки последняя?
+          </p>
+          <div class="buttons-container">
+            <a
+              class="link ans-button"
+              onclick="changePage(41)"
+              >Да</a
+            >
+            <a
+              class="link ans-button"
+              onclick="changePage(42)"
+              >Нет</a
+            >
+          </div>
+        </div>
+      </div>
+`;
+          break;
+
+        case 41:
+          main.innerHTML = `<div class="main-padding">
+        <h1>
+          Экран устройства неисправен
+        </h1>
+        <div class="hr"></div>
+        <p>
+          Попробуйте перезагрузить устройство.
+      </p>
+       <div id="dialog-box" class="dialog-box">
+          <p style="text-align: center">
+            Неисправность устранена?
+          </p>
+          <div class="buttons-container">
+            <a
+              class="link ans-button"
+              onclick="changePage(38)"
+              >Да</a
+            >
+            <a
+              class="link ans-button"
+              onclick="changePage(37)"
+              >Нет</a
+            >
+          </div>
+        </div>
+      </div>
+`;
+          break;
+
+        case 42:
+          main.innerHTML = `<div class="main-padding">
+        <h1>
+          Экран устройства неисправен
+        </h1>
+        <div class="hr"></div>
+        <p>
+          Обновите прошивку до актуальной версии.
+          Для этого проследуйте на страницу регламентных
+          работ "Обновление ПО" по ссылке ниже.
+      </p>
+      <p>
+        После выполнения описанных на странице шагов,
+        нажмите кнопку "Назад" данного ИЭТР, чтобы вернуться
+        на страницу диалога.
+        </p>
+                <div style="display: flex; flex-direction: column; margin-bottom: 2em">
+                  <h2 class="oglavlenie-h2">Ссылка на раздел:</h2>
+                  <div class="hr"></div>
+                  <a
+                    class="link"
+                    onclick="changePage(11)"
+                    >Обновление ПО</a
+                  >
+                </div>
+       <div id="dialog-box" class="dialog-box">
+          <p style="text-align: center">
+            Неисправность устранена?
+          </p>
+          <div class="buttons-container">
+            <a
+              class="link ans-button"
+              onclick="changePage(38)"
+              >Да</a
+            >
+            <a
+              class="link ans-button"
+              onclick="changePage(37)"
+              >Нет</a
+            >
+          </div>
+        </div>
+      </div>
+`;
           break;
 
         default:
