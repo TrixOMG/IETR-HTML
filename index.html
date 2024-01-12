@@ -2926,9 +2926,11 @@
     }
 
     function rememberPages(pageId) {
-      if (pagesHistory.length === 100) return;
+      if (pagesHistory.length === 100) pagesHistory.shift();
+
       if (pagesHistory[pagesHistory.length - 1] === pageId)
         return;
+
       pagesHistory.push(pageId);
     }
 
